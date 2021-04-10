@@ -5,3 +5,4 @@ display the content of the file. You can take input of non-zero numbers, with an
 prompt, from the user until the user enters a zero to create the file assuming that the numbers
 are non-zero.
 """
+import fi
