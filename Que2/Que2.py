@@ -25,7 +25,7 @@ try:
     f.close()
     f = open(file,"r")
 except OSError:
-    print("File to creating a file")
+    print("Failed to creating a file")
 else:
     while True:
         print("1.  Entire text file ")
