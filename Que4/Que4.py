@@ -18,14 +18,28 @@ try:
             print("Input process terminate successfully")
             f1.close()
             break
-        #     #Here if data is staring then it will be execute on exception
-        #     inputData = float(inputData)
-        #     #check integer
-        #     if int(inputData)/inputData == 1:
-        #         print("Integer")
-        #     elif inputData/int(inputData) > 1:
-        #         print("float")
-        # except ValueError:
-        #     print("String")
+        f1.write(f"{inputData}\n")
+    f1 = open(file1,"r")
+    f2 = open(file2,"+w")
+    f3 = open(file3,"+w")
+    f4 = open(file4,"+w")
+    for data in f1:
+        try:
+            #Here if data is staring then it will be execute on exception
+            data = float(data)
+            #check integer
+            if int(data)/data == 1 or int(data) == 0:
+                # print("Integer")
+                f2.write(f"{int(data)}\n")
+            elif data/int(data) > 1:
+                f3.write(f"{data}\n")
+                # print("float")
+        except ValueError:
+            f4.write(f"{data}")
+            # print("String")
+    f1.close()
+    f2.close()
+    f3.close()
+    f4.close()
 except OSError:
     print("Failed to creating a file")
