@@ -7,7 +7,6 @@ containing record of only 1 student). Prepare mark list in the following format:
 Roll No.    Mark-1      Mark-2      Mark-3      Total 
   1          45          40          35          120 
 """
-import json
 file = "studentRecord.txt"
 try:
     f1 = open(file,"+w")
