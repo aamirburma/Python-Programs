@@ -14,9 +14,11 @@ try:
     while True:
         try:
             number = int(input("Enter student roll number: "))
+            # if number.lower() == "end":
+            #     break
             marksList =  []
             for i in range(0,3):
-                marksList.append(float(input(f"Enter {i+1} Subject Marks: ")))
+                marksList.append(int(input(f"Enter {i+1} Subject Marks: ")))
             fileInputedData = f'{number}, {marksList}'
             f1.write(f"{fileInputedData}\n")
             checkTurmination = input("Do you want to add another record? (Y/N): ")
@@ -29,10 +31,31 @@ try:
     print("-"*30,"Data from the file","-"*30)
     f1 = open(file,"r") 
     print("%15s %15s %15s %15s %15s"%("Roll No.","Marks-1","Marks-2","Marks-3","Total"))
-    for data in f1.readlines():
-        rollNo = data.split(',',1)[0]
-        list = data.split(',',1)[1]
-        marks = (list.split('[', 1)[1].split(']')[0]).split(',')
-        print("%15s %15.2f %15.2f %15.2f %15.2f"%(rollNo,float(marks[0]),float(marks[1]),float(marks[2]),(float(marks[0])+float(marks[1])+float(marks[2]))))
+    # print(f1.readlines()[0][2:])
+    i = 1
+    no = ""
+    for data in f1:
+        i = 1
+        no = ""
+        marks = ""
+        for char in data:
+            if char == "," and i == 1:
+                i += 1
+                continue
+            elif i == 1:
+                no += char
+            elif i == 2:
+
+            # print(char,end="")
+        print("No =>",no)
+        # print(data.split(',')[0])
+        # marks = data[2:-1]
+        # # print(marks)
+        # # marks = marks.strip('][').split(', ')
+        # # marks = json.loads(marks)
+        # print(data[0],"=>",marks)
+        # print(data[0],type(marks))
+        # print(data.split())
+
 except IOError:
     print("Failed to creating a file")
